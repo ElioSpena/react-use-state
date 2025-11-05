@@ -1,9 +1,13 @@
+import Header from "./components/Header"
+import Main from "./components/Main"
 
+import languages from "./data/languages"
 
 function App() {
   return (
     <>
-    <h1>HELLO</h1>
+    <Header />
+    <Main languages={languages}/>
     </>
   )
 }
