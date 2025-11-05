@@ -1,5 +1,6 @@
 import { use, useState } from "react"
 import DescriptionCard from "./DescriptionCard";
+import Button from "./Button";
 
 export default function TogglePanel({languages}) {
     const [title, setTitle] = useState("");
@@ -8,18 +9,18 @@ export default function TogglePanel({languages}) {
 
     return(
         <>
-        
+
            <div className="d-flex justify-content-center gap-5">
                    {languages.map(curLang=> 
-                    <button key={curLang.id}
-                    onClick={()=>{
+                    <Button 
+                     key={curLang.id}
+                     className={`btn ${active === curLang.id ? "btn-warning" : "btn-primary"}`}
+                     onClick={()=>{
                         setTitle(()=>curLang.title)
                         setDescription(()=>curLang.description)
                         setActive(()=> curLang.id)
                     }}
-                    className={`btn ${active === curLang.id ? "btn-warning" : "btn-primary"}`}>
-                        {curLang.title}
-                    </button>
+                    title={curLang.title} />
                    )}
                 </div>
                 
